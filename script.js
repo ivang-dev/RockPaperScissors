@@ -21,6 +21,7 @@ function getComputerChoice() {
 function getHumanChoice() {
   //Declare/initialize the variable to hold the player's choice
   let humanChoice = prompt("Rock, Paper, or Scissors?");
+  return humanChoice;
 }
 
 // Declare/initialize score tracking variables
@@ -41,19 +42,32 @@ function playRound(humanChoice, computerChoice) {
     console.log(`You both made the same choice! It's a tie!`);
   } else if (lowerCaseChoice === "rock" && computerChoice === "paper") {
     console.log(`You lose! Paper beats rock!`);
+    computerScore++;
   } else if (lowerCaseChoice === "rock" && computerChoice === "scissors") {
     console.log(`You win! Rock beats scissors!`);
+    humanScore++;
   } else if (lowerCaseChoice === "paper" && computerChoice === "rock") {
     console.log(`You win! Paper beats rock!`);
+    humanScore++;
   } else if (lowerCaseChoice === "paper" && computerChoice === "paper") {
     console.log(`You both made the same choice! It's a tie!`);
   } else if (lowerCaseChoice === "paper" && computerChoice === "scissors") {
     console.log(`You lose! Scissors beats papers!`);
+    computerScore++;
   } else if (lowerCaseChoice === "scissors" && computerChoice === "rock") {
     console.log(`You lose! Rock beats scissors!`);
+    computerScore++;
   } else if (lowerCaseChoice === "scissors" && computerChoice === "paper") {
     console.log(`You win! Scissors beats paper!`);
+    humanScore++;
   } else if (lowerCaseChoice === "scissors" && computerChoice === "scissors") {
     console.log(`You both made the same choice! It's a tie!`);
   }
 }
+
+// Call choice functions and assign to constants
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+// Call playRound function with new constants
+playRound(humanSelection, computerSelection);
