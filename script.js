@@ -1,5 +1,6 @@
+// Function to get the randomized computer choice
 function getComputerChoice() {
-  // Declare variable for the computer's choice
+  // Declare/initialize variable for the computer's choice
   let computerChoice = "";
 
   // Switch statement for the different random cases
@@ -16,6 +17,18 @@ function getComputerChoice() {
   return computerChoice;
 }
 
+// Function to get the human player's choice
 function getHumanChoice() {
-  let playerChoice = prompt("Rock, Paper, or Scissors?");
+  //Declare/initialize the variable to hold the player's choice
+  let humanChoice = prompt("Rock, Paper, or Scissors?");
+}
+
+// Declare/initialize score tracking variables
+let humanScore = 0;
+let computerScore = 0;
+
+// Function to play a single round
+function playRound(humanChoice, computerChoice) {
+  // Make the human choice case insensitive and trim any possible whitespace
+  let lowerCaseChoice = humanChoice.trim().toLowerCase();
 }
