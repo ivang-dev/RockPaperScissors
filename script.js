@@ -70,12 +70,8 @@ function playGame() {
     }
   }
 
-  // Call playRound 5 times getting a new choice for each player
-  playRound(getHumanChoice(), getComputerChoice());
-  playRound(getHumanChoice(), getComputerChoice());
-  playRound(getHumanChoice(), getComputerChoice());
-  playRound(getHumanChoice(), getComputerChoice());
-  playRound(getHumanChoice(), getComputerChoice());
+// Event Listeners for the buttons
+
 
   // Calculate and declare the winner of the game and display the scores
   if (humanScore === computerScore) {
