@@ -17,10 +17,11 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-
-
   // Function to play a single round
-  function playRound(humanChoice) {
+  function playRound(humanChoice, computerChoice) {
+     // Declare score tracking variables
+     let humanScore = 0;
+     let computerScore = 0;
    
     // Get message out for choices
     console.log(`You chose ${humanChoice}!`);
@@ -57,27 +58,31 @@ function getComputerChoice() {
     }
   }
 
-  // Calculate and declare the winner of the game and display the scores
-  if (humanScore === computerScore) {
-    console.log(`You had the same score! It's a tie!`);
-    console.log(`You: ${humanScore}! Computer: ${computerScore}!`);
-  } else if (humanScore < computerScore) {
-    console.log(`You scored less that the computer! You lose!`);
-    console.log(`You: ${humanScore}! Computer: ${computerScore}!`);
-  } else if (humanScore > computerScore) {
-    console.log(`You scored more than the computer! You win!`);
-    console.log(`You: ${humanScore}! Computer: ${computerScore}!`);
-  }
-
-
 // Declare buttons
 const rockBtn = document.querySelector('#rock')
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors')
 
 // Add event listeners to the buttons that call playRound function
-rockBtn.addEventListener('click', playRound('rock'));
-paperBtn.addEventListener('click', playRound('paper'));
-scissorsBtn.addEventListener('click', playRound('scissors'));
+rockBtn.addEventListener('click', playRound('rock', getComputerChoice()));
+paperBtn.addEventListener('click', playRound('paper', getComputerChoice()));
+scissorsBtn.addEventListener('click', playRound('scissors', getComputerChoice()));
 
+// Function for entire match, first to 5 points wins
+function playGame(){
+ 
 
+  // Calculate and declare the winner of the game and display the scores
+  if (humanScore === computerScore) {
+      console.log(`You had the same score! It's a tie!`);
+      console.log(`You: ${humanScore}! Computer: ${computerScore}!`);
+   } else if (humanScore < computerScore) {
+      console.log(`You scored less that the computer! You lose!`);
+      console.log(`You: ${humanScore}! Computer: ${computerScore}!`);
+   } else if (humanScore > computerScore) {
+      console.log(`You scored more than the computer! You win!`);
+      console.log(`You: ${humanScore}! Computer: ${computerScore}!`);
+    }
+}
+
+playGame();
