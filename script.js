@@ -17,23 +17,12 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// Function to get the human player's choice
-function getHumanChoice() {
-  //Declare/initialize the variable to hold the player's choice
-  let humanChoice = prompt("Rock, Paper, or Scissors?");
-  return humanChoice;
-}
 
-//Function to play 5 rounds
-function playGame() {
-  // Declare/initialize score tracking variables
-  let humanScore = 0;
-  let computerScore = 0;
 
   // Function to play a single round
-  function playRound(humanChoice, computerChoice) {
+  function playRound(humanChoice) {
     // Make the human choice case insensitive and trim any possible whitespace
-    let lowerCaseChoice = humanChoice.trim().toLowerCase();
+    let humanChoice = humanChoice
 
     // Get message out for choices
     console.log(`You chose ${lowerCaseChoice}!`);
@@ -70,9 +59,6 @@ function playGame() {
     }
   }
 
-// Event Listeners for the buttons
-
-
   // Calculate and declare the winner of the game and display the scores
   if (humanScore === computerScore) {
     console.log(`You had the same score! It's a tie!`);
@@ -84,6 +70,15 @@ function playGame() {
     console.log(`You scored more than the computer! You win!`);
     console.log(`You: ${humanScore}! Computer: ${computerScore}!`);
   }
-}
+
+
+// Declare buttons
+const rockBtn = document.querySelector('#rock')
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors')
+
+// Add event listeners to the buttons that call playRound function
+rockBtn.addEventListener('click', playRound('rock'))
+
 
 playGame();
