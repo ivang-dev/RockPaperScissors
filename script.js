@@ -17,7 +17,7 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// Function to evaluate if someone wins
+// Function to evaluate if someone wins and disable the buttons
 function determineWinner(humanScore, computerScore) {
     if (humanScore === 5) {
         console.log("You got 5 points! You win!");
@@ -43,6 +43,9 @@ function playGame() {
         // Get message out for choices
         console.log(`You chose ${humanChoice}!`);
         console.log(`The computer chose ${computerChoice}!`);
+        const rollResults = document.createElement("div");
+        rollResults.textContent = `You chose ${humanChoice}!`;
+        results.append(rollResults);
 
         // Logic to determine the winner
         if (humanChoice === "rock" && computerChoice === "rock") {
@@ -104,6 +107,9 @@ const computerScoreDisplay = document.querySelector("#computerScore");
 const rockBtn = document.querySelector('#rock')
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors')
+
+// Declare results of rolls and winners
+const results = document.querySelector("#results");
 
 // Call playGame function
 playGame()
