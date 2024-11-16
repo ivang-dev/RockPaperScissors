@@ -38,13 +38,20 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+    // Element created to display the results of the roll
+    const rollResults = document.createElement("div");
+
     // Function to play a single round
     function playRound(humanChoice, computerChoice) {
+        // Clears previous result
+        rollResults.textContent = "";
+        results.append(rollResults);
+
         // Get message out for choices
         console.log(`You chose ${humanChoice}!`);
         console.log(`The computer chose ${computerChoice}!`);
-        const rollResults = document.createElement("div");
-        rollResults.textContent = `You chose ${humanChoice}!`;
+
+        rollResults.textContent = `You chose ${humanChoice}! The computer chose ${computerChoice}!`;
         results.append(rollResults);
 
         // Logic to determine the winner
