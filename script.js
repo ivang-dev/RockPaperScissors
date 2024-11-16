@@ -38,6 +38,9 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+    // Declare result variable
+    let resultText = "";
+
     // Element created to display the results of the roll
     const rollResults = document.createElement("div");
 
@@ -51,38 +54,39 @@ function playGame() {
         console.log(`You chose ${humanChoice}!`);
         console.log(`The computer chose ${computerChoice}!`);
 
-        rollResults.textContent = `You chose ${humanChoice}! The computer chose ${computerChoice}!`;
-        results.append(rollResults);
-
-        // Logic to determine the winner
+        // Logic to determine the winner, and set result variable
         if (humanChoice === "rock" && computerChoice === "rock") {
-            console.log(`You both made the same choice! It's a tie!`);
+            resultText =`You both made the same choice! It's a tie!`;
         } else if (humanChoice === "rock" && computerChoice === "paper") {
-            console.log(`You lose! Paper beats rock!`);
+            resultText =`You lose! Paper beats rock!`;
             computerScore++;
         } else if (humanChoice === "rock" && computerChoice === "scissors") {
-            console.log(`You win! Rock beats scissors!`);
+            resultText =`You win! Rock beats scissors!`;
             humanScore++;
         } else if (humanChoice === "paper" && computerChoice === "rock") {
-            console.log(`You win! Paper beats rock!`);
+            resultText =`You win! Paper beats rock!`;
             humanScore++;
         } else if (humanChoice === "paper" && computerChoice === "paper") {
-            console.log(`You both made the same choice! It's a tie!`);
+            resultText =`You both made the same choice! It's a tie!`;
         } else if (humanChoice === "paper" && computerChoice === "scissors") {
-            console.log(`You lose! Scissors beats papers!`);
+            resultText =`You lose! Scissors beats papers!`;
             computerScore++;
         } else if (humanChoice === "scissors" && computerChoice === "rock") {
-            console.log(`You lose! Rock beats scissors!`);
+            resultText =`You lose! Rock beats scissors!`;
             computerScore++;
         } else if (humanChoice === "scissors" && computerChoice === "paper") {
-            console.log(`You win! Scissors beats paper!`);
+            resultText =`You win! Scissors beats paper!`;
             humanScore++;
         } else if (
             humanChoice === "scissors" &&
             computerChoice === "scissors"
         ) {
-            console.log(`You both made the same choice! It's a tie!`);
+            resultText =`You both made the same choice! It's a tie!`;
         }
+
+        rollResults.textContent = `You chose ${humanChoice}! The computer chose ${computerChoice}! 
+        ${resultText}`;
+        results.append(rollResults);
     }
 
     // Add event listeners to the buttons that call playRound function
