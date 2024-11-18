@@ -137,5 +137,13 @@ const scissorsBtn = document.querySelector('#scissors')
 // Declare results of rolls and winners
 const results = document.querySelector("#results");
 
+// Declare reload button
+const reloadBtn = document.querySelector('#reloadBtn');
+
+// Add reload method to the reload button
+reloadBtn.addEventListener("click", () => {
+    location.reload();
+});
+
 // Call playGame function
 playGame()
