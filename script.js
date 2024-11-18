@@ -18,17 +18,25 @@ function getComputerChoice() {
 }
 
 // Function to evaluate if someone wins and disable the buttons
-function determineWinner(humanScore, computerScore) {
+function determineWinner(humanScore, computerScore, rollResults, rollResultsLWT) {
     if (humanScore === 5) {
         console.log("You got 5 points! You win!");
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
+        rollResults.textContent = `You got 5 points! You win!`;
+        rollResultsLWT.textContent = "";
+        results.append(rollResults);
+        results.append(rollResultsLWT);
     } else if (computerScore === 5) {
         console.log("The computer got 5 points! You lose!");
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
+        rollResults.textContent = `The computer got 5 points! You lose!`;
+        rollResultsLWT.textContent = "";
+        results.append(rollResults);
+        results.append(rollResultsLWT);
     }
 }
 
@@ -94,7 +102,6 @@ function playGame() {
         rollResultsLWT.textContent = resultText
         results.append(rollResults);
         results.append(rollResultsLWT);
-
     }
 
     // Add event listeners to the buttons that call playRound function
@@ -102,19 +109,19 @@ function playGame() {
         playRound("rock", getComputerChoice());
         console.log(computerScore);
         console.log(humanScore);
-        determineWinner(humanScore, computerScore);
+        determineWinner(humanScore, computerScore, rollResults, rollResultsLWT);
     });
     paperBtn.addEventListener("click", () => {
         playRound("paper", getComputerChoice());
         console.log(computerScore);
         console.log(humanScore);
-        determineWinner(humanScore, computerScore);
+        determineWinner(humanScore, computerScore, rollResults, rollResultsLWT);
     });
     scissorsBtn.addEventListener("click", () => {
         playRound("scissors", getComputerChoice());
         console.log(computerScore);
         console.log(humanScore);
-        determineWinner(humanScore, computerScore);
+        determineWinner(humanScore, computerScore, rollResults, rollResultsLWT);
     });
 }
 
