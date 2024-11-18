@@ -41,8 +41,9 @@ function playGame() {
     // Declare result variable
     let resultText = "";
 
-    // Element created to display the results of the roll
+    // Elements created to display the results of the roll
     const rollResults = document.createElement("div");
+    const rollResultsLWT = document.createElement("div");
 
     // Function to play a single round
     function playRound(humanChoice, computerChoice) {
@@ -89,9 +90,11 @@ function playGame() {
         computerScoreDisplay.textContent = computerScore.toString();
 
         // Display round result
-        rollResults.textContent = `You chose ${humanChoice}! The computer chose ${computerChoice}! 
-        ${resultText}`;
+        rollResults.textContent = `You chose ${humanChoice}! The computer chose ${computerChoice}!`;
+        rollResultsLWT.textContent = resultText
         results.append(rollResults);
+        results.append(rollResultsLWT);
+
     }
 
     // Add event listeners to the buttons that call playRound function
