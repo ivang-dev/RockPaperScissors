@@ -84,6 +84,11 @@ function playGame() {
             resultText =`You both made the same choice! It's a tie!`;
         }
 
+        // Change human and computer score display
+        humanScoreDisplay.textContent = humanScore.toString();
+        computerScoreDisplay.textContent = computerScore.toString();
+
+        // Display round result
         rollResults.textContent = `You chose ${humanChoice}! The computer chose ${computerChoice}! 
         ${resultText}`;
         results.append(rollResults);
